@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
     public void Moveto(GridTile targetTile)
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime)
+        transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime);
     
     }
 }
