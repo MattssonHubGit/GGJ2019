@@ -67,6 +67,7 @@ public class Player : MonoBehaviour {
         {
             //Every turn things
             skipRestOfMove = false;
+            IconCollector.Instance.UpdateCommandList();
 
             switch (keylist[keylisttracker])
             {

@@ -39,7 +39,7 @@ public class IconCollector : MonoBehaviour {
         allIcons = new List<Image>();
 
         //create new ones
-        for (int i = 0; i < InputCollector.Instance.keylist.Count; i++)
+        for (int i = InputCollector.Instance.player.keylisttracker; i < InputCollector.Instance.keylist.Count; i++)
         {
             Image _icon = Instantiate(iconPrefab, this.transform);
             allIcons.Add(_icon);
