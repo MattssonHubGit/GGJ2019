@@ -63,6 +63,7 @@ public class InputCollector : MonoBehaviour {
 
     public void Emptykeylist() {
         keylist.Clear();
+        IconCollector.Instance.UpdateCommandList();
     }
 
     public List<string> Getcurrentkeylist(){

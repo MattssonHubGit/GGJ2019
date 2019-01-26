@@ -53,3 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTile: {fileID: 0}
   blocks: 1
+  isTarget: 0
+  player: {fileID: 0}
+  inputCollector: {fileID: 0}

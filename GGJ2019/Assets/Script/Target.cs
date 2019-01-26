@@ -10,13 +10,11 @@ public class Target : Obstacle {
 
     public override void OnAttemptEnter()
     {
-        if(isTarget)
+        if (isTarget)
         {
-            win();
-            inputCollector.Emptykeylist();
-            player.currentState = Player.PlayerState.MVSELECT;
-            player.keylisttracker = -1;
-            
+            player.win();
+
+
         }
     }
 
@@ -38,9 +36,5 @@ public class Target : Obstacle {
     public override void OnPlayerExecutes()
     {
         throw new System.NotImplementedException();
-    }
-    private void win()
-    {
-        Debug.Log("You won");
     }
 }
