@@ -143,6 +143,7 @@ MonoBehaviour:
   neighbourWest: {fileID: 0}
   neighbours: []
   isBlocking: 0
+  coordinates: {x: 0, y: 0}
   myObstacle: {fileID: 0}
   SetUpObsticle:
     m_PersistentCalls:

@@ -41,7 +41,7 @@ public class GridTile : MonoBehaviour {
 
     public void UnbindMyObsticle()
     {
-        myObstacle.transform.parent = null;
+        //myObstacle.transform.parent = null;
         myObstacle = null;
         isBlocking = false;
     }

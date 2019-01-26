@@ -31,26 +31,10 @@ public class Cat : Obstacle {
 
     public override void OnPlayerExecutes()
     {
-        if (pathCounter < 0)
+        /*if (myTile == )
         {
-            reversing = true;
-        }
-        else if (pathCounter >= path.Count)
-        {
-            reversing = false;
-        }
 
-
-        if (reversing)
-        {
-            myTile = path[pathCounter - 1];
-            pathCounter--;
-        }
-        else
-        {
-            myTile = path[pathCounter + 1];
-            pathCounter++;
-        }
+        }*/
 
         GridTile oldTile = myTile.neighbourSouth; //Find old tile
         oldTile.UnbindMyObsticle(); //Unbind me
