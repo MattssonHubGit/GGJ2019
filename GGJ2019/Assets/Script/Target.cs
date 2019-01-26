@@ -13,7 +13,9 @@ public class Target : Obstacle {
         if(isTarget)
         {
             win();
+           
             inputCollector.Emptykeylist();
+            
             
         }
     }
