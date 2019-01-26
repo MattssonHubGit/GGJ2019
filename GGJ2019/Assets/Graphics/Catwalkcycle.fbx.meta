@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: f4c3b826c9f60b74fb091bb9f527edab
+timeCreated: 1548525660
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body_ctrler
+    100002: //RootNode
+    100004: Chest
+    100006: Hip
+    100008: Hip_ctr_group
+    100010: Hip_ctrl
+    100012: L_Elbow
+    100014: L_Elbow 1
+    100016: L_Foot
+    100018: L_Foot 1
+    100020: L_heel
+    100022: L_heel 1
+    100024: L_Leg
+    100026: L_Leg 1
+    100028: L_Paw
+    100030: L_Paw 1
+    100032: L_Shoulder
+    100034: L_shoulder_ctrl
+    100036: L_shoulder_ctrl_group
+    100038: L_Thigh
+    100040: L_Thigh1
+    100042: L_thigh_ctrl
+    100044: L_thigh_group
+    100046: Mesh
+    100048: R_Shoulder
+    100050: R_shoulder_ctrl
+    100052: R_shoulder_ctrl_group
+    100054: R_thigh_ctrl
+    100056: R_thigh_ctrl_group
+    100058: Tail_1
+    100060: Tail_1_ctrl
+    100062: Tail_1_ctrl_Group
+    100064: Tail_2
+    100066: Tail_2_ctr_group
+    100068: Tail_2_Ctrl
+    100070: Tail_Root
+    100072: Tail_Root_ctrl
+    100074: Tail_root_ctrl_group
+    100076: Tail_Tip
+    100078: Tail_Tip_ctrl
+    100080: Tail_tip_ctrl_group
+    400000: Body_ctrler
+    400002: //RootNode
+    400004: Chest
+    400006: Hip
+    400008: Hip_ctr_group
+    400010: Hip_ctrl
+    400012: L_Elbow
+    400014: L_Elbow 1
+    400016: L_Foot
+    400018: L_Foot 1
+    400020: L_heel
+    400022: L_heel 1
+    400024: L_Leg
+    400026: L_Leg 1
+    400028: L_Paw
+    400030: L_Paw 1
+    400032: L_Shoulder
+    400034: L_shoulder_ctrl
+    400036: L_shoulder_ctrl_group
+    400038: L_Thigh
+    400040: L_Thigh1
+    400042: L_thigh_ctrl
+    400044: L_thigh_group
+    400046: Mesh
+    400048: R_Shoulder
+    400050: R_shoulder_ctrl
+    400052: R_shoulder_ctrl_group
+    400054: R_thigh_ctrl
+    400056: R_thigh_ctrl_group
+    400058: Tail_1
+    400060: Tail_1_ctrl
+    400062: Tail_1_ctrl_Group
+    400064: Tail_2
+    400066: Tail_2_ctr_group
+    400068: Tail_2_Ctrl
+    400070: Tail_Root
+    400072: Tail_Root_ctrl
+    400074: Tail_root_ctrl_group
+    400076: Tail_Tip
+    400078: Tail_Tip_ctrl
+    400080: Tail_tip_ctrl_group
+    2100000: lambert1
+    4300000: Mesh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
