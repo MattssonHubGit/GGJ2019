@@ -17,7 +17,6 @@ public class Target : Obstacle {
             player.currentState = Player.PlayerState.MVSELECT;
             player.keylisttracker = -1;
             
-            
         }
     }
 

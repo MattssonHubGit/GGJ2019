@@ -77,13 +77,10 @@ public class Player : MonoBehaviour {
             //Every turn things
             skipRestOfMove = false;
             IconCollector.Instance.UpdateCommandList();
-           /* for (int x = 0; x < GridGenerator.Instacne.level.GetLength(0); x++)
+            foreach (GridTile _tile in GridGenerator.Instacne.allTilesLifeSuck)
             {
-                for (int y = 0; y < GridGenerator.Instacne.level.GetLength(1); y++)
-                {
-                    GridGenerator.Instacne.level[x, y].OnCommandExecute();
-                }
-            }*/
+                _tile.OnCommandExecute();
+            }
 
             switch (keylist[keylisttracker])
             {

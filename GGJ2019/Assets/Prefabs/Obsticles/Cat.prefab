@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4746458292441502}
   - component: {fileID: 114733362374669020}
   m_Layer: 0
-  m_Name: StaticChair 1
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
