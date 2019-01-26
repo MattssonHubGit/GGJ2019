@@ -2368,18 +2368,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1884133051635412, guid: 1bec397f5fa209341b579855bfb09103, type: 2}
-      propertyPath: m_Name
-      value: Commands Background
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bec397f5fa209341b579855bfb09103, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &280843603 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224392196459403552, guid: 1bec397f5fa209341b579855bfb09103,
-    type: 2}
-  m_PrefabInternal: {fileID: 280843602}
 --- !u!1 &293391108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,74 +3557,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &492828752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 492828753}
-  - component: {fileID: 492828755}
-  - component: {fileID: 492828754}
-  m_Layer: 5
-  m_Name: QuestBackground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &492828753
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 492828752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 280843603}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -429}
-  m_SizeDelta: {x: 600, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &492828754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 492828752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e5029bfb052f1474cabb37c5a0476f5d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &492828755
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 492828752}
 --- !u!1 &493740464
 GameObject:
   m_ObjectHideFlags: 0
@@ -5674,6 +5597,11 @@ Prefab:
       propertyPath: path.Array.data[7]
       value: 
       objectReference: {fileID: 1130502844}
+    - target: {fileID: 114733362374669020, guid: 0c56b379faf47074a998c3ac89711775,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c56b379faf47074a998c3ac89711775, type: 2}
   m_IsPrefabParent: 0
@@ -12293,7 +12221,7 @@ Prefab:
         type: 2}
       propertyPath: currentTile
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1986853693}
     - target: {fileID: 4689670261790796, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
       propertyPath: m_LocalScale.x
       value: 10
@@ -12305,6 +12233,16 @@ Prefab:
     - target: {fileID: 4689670261790796, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
       propertyPath: m_LocalScale.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114441174044560392, guid: 58eff9a29f26c4340836302b031d986d,
+        type: 2}
+      propertyPath: inputCollector
+      value: 
+      objectReference: {fileID: 1679841378}
+    - target: {fileID: 114441174044560392, guid: 58eff9a29f26c4340836302b031d986d,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
@@ -12327,6 +12265,12 @@ CapsuleCollider:
   m_Height: 11.01
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1679841378 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114344214892267954, guid: 58eff9a29f26c4340836302b031d986d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1679841375}
+  m_Script: {fileID: 11500000, guid: 9bbf6d32307fb1a46a8e2864a1569c24, type: 3}
 --- !u!1001 &1683056243
 Prefab:
   m_ObjectHideFlags: 0
