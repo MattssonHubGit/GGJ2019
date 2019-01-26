@@ -17,8 +17,9 @@ public class Player : MonoBehaviour {
     public int score;
     public float timeleft;
 
-    private float currentTime=0;
-    public float maxturntime =10;
+    private float currentTime = 0;
+    public float maxturntime = 10;
+    public float minmaxturntime = 3;
     bool timeout = false;
 
     public enum PlayerState { WAITING, EXECUTING, MVSELECT};
@@ -83,7 +84,6 @@ public class Player : MonoBehaviour {
     private void CommandControllerFix()
     {
         keylist = InputCollector.Instance.Getcurrentkeylist();
-        Debug.Log("Firstelementofnewkeylist:" + keylist[0]);
         
         if (keylisttracker < keylist.Count)
         {
@@ -291,9 +291,15 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("You won");
         inputCollector.Emptykeylist();
-        currentState = PlayerState.MVSELECT;
         keylisttracker = -1;
         score++;
+        if (maxturntime > minmaxturntime)
+        {
+            maxturntime--;
+        }
+        currentState = PlayerState.MVSELECT;
+
+        
     }
     public void loose()
     {
