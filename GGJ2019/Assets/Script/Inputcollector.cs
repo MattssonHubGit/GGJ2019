@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputCollector : MonoBehaviour {
 
-    List<string> keylist;
+    public List<string> keylist;
     public static InputCollector Instance;
     int debugvar;
     public Player player;
@@ -22,19 +22,36 @@ public class InputCollector : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         if (player.IsMVSELECT())
         {
             if (Input.GetKeyDown("up"))
+            {
                 keylist.Add("up");
+                IconCollector.Instance.UpdateCommandList();
+            }
+
             if (Input.GetKeyDown("down"))
+            {
                 keylist.Add("down");
+                IconCollector.Instance.UpdateCommandList();
+            }
             if (Input.GetKeyDown("left"))
+            {
                 keylist.Add("left");
+                IconCollector.Instance.UpdateCommandList();
+            }
             if (Input.GetKeyDown("right"))
+            {
                 keylist.Add("right");
+                IconCollector.Instance.UpdateCommandList();
+            }
             if (Input.GetKeyDown("space"))
+            {
                 keylist.Add("space");
+                IconCollector.Instance.UpdateCommandList();
+            }
         }
     }
 
