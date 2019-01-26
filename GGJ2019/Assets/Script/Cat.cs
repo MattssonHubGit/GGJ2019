@@ -41,6 +41,7 @@ public class Cat : MonoBehaviour {
         if (_player != null)
         {
             Debug.Log("YOU WILL LOSE!");
+            _player.loose();
         }
     }
 }
