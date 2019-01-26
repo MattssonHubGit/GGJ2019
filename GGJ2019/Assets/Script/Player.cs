@@ -290,6 +290,7 @@ public class Player : MonoBehaviour {
     public void win()
     {
         Debug.Log("You won");
+        Targetselector.Instance.Randomize();
         inputCollector.Emptykeylist();
         keylisttracker = -1;
         score++;
