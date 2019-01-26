@@ -7,7 +7,7 @@ public class GridGenerator : MonoBehaviour {
     public static GridGenerator Instacne;
 
     [SerializeField] private GridTile tilePrefab;
-    private GridTile[,] level;
+    [HideInInspector]public GridTile[,] level;
 
     [Header("Level Size")]
     [Range(1, 20)] [SerializeField] private int xSize = 1;
