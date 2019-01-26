@@ -12,7 +12,7 @@ public class Target : Obstacle {
     {
         if (isTarget)
         {
-            win();
+            player.win();
 
 
         }
@@ -36,16 +36,5 @@ public class Target : Obstacle {
     public override void OnPlayerExecutes()
     {
         throw new System.NotImplementedException();
-    }
-    public void win()
-    {
-        Debug.Log("You won");
-        inputCollector.Emptykeylist();
-        player.currentState = Player.PlayerState.MVSELECT;
-        player.keylisttracker = -1;
-    }
-    public void loose(){
-        Debug.Log("Du förlorade men detta är inte implementerat");
-        //gameoverscrreen och reload scene
     }
 }
