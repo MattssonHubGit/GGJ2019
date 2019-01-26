@@ -13,12 +13,13 @@ public class Player : MonoBehaviour {
     [Header("actual variables")]
     [SerializeField] private float moveSpeed = 4;
 
-    public enum PlayerState { WAITING, EXECUTING, OTHER};
-    private PlayerState currentState = PlayerState.OTHER;
+    public enum PlayerState { WAITING, EXECUTING, MVSELECT};
+    public PlayerState currentState;
 
     void Start()
     {
         int keylisttracker = 0;
+        currentState = PlayerState.MVSELECT;
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour {
             case PlayerState.EXECUTING:
                 CommandControllerFix();
                 break;
-            case PlayerState.OTHER:
+            case PlayerState.MVSELECT:
                 if (Input.GetKeyDown("return"))
                     currentState = PlayerState.EXECUTING;
                     break;
@@ -141,5 +142,12 @@ public class Player : MonoBehaviour {
 
             }
         }
+    }
+    public bool IsMVSELECT()
+    {
+        if (currentState == PlayerState.MVSELECT)
+            return true;
+        else
+            return false;
     }
 }

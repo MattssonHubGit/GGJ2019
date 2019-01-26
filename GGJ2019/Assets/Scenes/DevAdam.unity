@@ -265,6 +265,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150227165}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &205571423 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114441174044560392, guid: 58eff9a29f26c4340836302b031d986d,
+    type: 2}
+  m_PrefabInternal: {fileID: 982031514}
+  m_Script: {fileID: 11500000, guid: c60f08cc0f46d834595ec4dfb6e6fac9, type: 3}
 --- !u!1 &217625765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1648,11 @@ Prefab:
       propertyPath: currentTile
       value: 
       objectReference: {fileID: 590821836}
+    - target: {fileID: 114757727611451536, guid: 58eff9a29f26c4340836302b031d986d,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 205571423}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
   m_IsPrefabParent: 0
