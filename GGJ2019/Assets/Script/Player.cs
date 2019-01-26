@@ -13,6 +13,9 @@ public class Player : MonoBehaviour {
     [Header("actual variables")]
     [SerializeField] private float moveSpeed = 4;
 
+    private float currentTime=0;
+    public float maxturntime =10;
+
     public enum PlayerState { WAITING, EXECUTING, MVSELECT};
     public PlayerState currentState;
 
@@ -33,8 +36,13 @@ public class Player : MonoBehaviour {
                 CommandControllerFix();
                 break;
             case PlayerState.MVSELECT:
+                //Debug.Log("mvstate");
+                TurnTimer();
                 if (Input.GetKeyDown("return"))
+                {
+                    Debug.Log("execute!");
                     currentState = PlayerState.EXECUTING;
+                }
                     break;
             default:
                 break;
@@ -62,12 +70,17 @@ public class Player : MonoBehaviour {
     private void CommandControllerFix()
     {
         keylist = InputCollector.Instance.Getcurrentkeylist();
+        Debug.Log("Firstelementofnewkeylist:" + keylist[0]);
         
         if (keylisttracker < keylist.Count)
         {
             //Every turn things
             skipRestOfMove = false;
             IconCollector.Instance.UpdateCommandList();
+            foreach (GridTile _tile in GridGenerator.Instacne.allTilesLifeSuck)
+            {
+                _tile.OnCommandExecute();
+            }
 
             switch (keylist[keylisttracker])
             {
@@ -244,4 +257,13 @@ public class Player : MonoBehaviour {
         currentTile.OnAttemptEnter();
         currentState = PlayerState.EXECUTING;
     }
+    //private bool TurnTimer()
+    //{
+    //    if (currentTime >= maxturntime)
+    //    {
+    //        return true
+    //    }
+    //    else
+    //}
 }
+

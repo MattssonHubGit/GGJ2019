@@ -41,7 +41,7 @@ public class GridTile : MonoBehaviour {
 
     public void UnbindMyObsticle()
     {
-        myObstacle.transform.parent = null;
+        //myObstacle.transform.parent = null;
         myObstacle = null;
         isBlocking = false;
     }
@@ -76,6 +76,14 @@ public class GridTile : MonoBehaviour {
         if (myObstacle != null)
         {
             myObstacle.OnAttemptExit();
+        }
+    }
+
+    public void OnCommandExecute()
+    {
+        if (myObstacle != null)
+        {
+            myObstacle.OnPlayerExecutes();
         }
     }
 

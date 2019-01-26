@@ -26,30 +26,36 @@ public class InputCollector : MonoBehaviour {
     {
         if (player.IsMVSELECT())
         {
+            //Debug.Log(inputCollector.keylist[0]);
             if (Input.GetKeyDown("up"))
             {
                 keylist.Add("up");
+                Debug.Log("key Added");
                 IconCollector.Instance.UpdateCommandList();
             }
 
             if (Input.GetKeyDown("down"))
             {
                 keylist.Add("down");
+                Debug.Log("key Added");
                 IconCollector.Instance.UpdateCommandList();
             }
             if (Input.GetKeyDown("left"))
             {
                 keylist.Add("left");
+                Debug.Log("key Added");
                 IconCollector.Instance.UpdateCommandList();
             }
             if (Input.GetKeyDown("right"))
             {
                 keylist.Add("right");
+                Debug.Log("key Added");
                 IconCollector.Instance.UpdateCommandList();
             }
             if (Input.GetKeyDown("space"))
             {
                 keylist.Add("space");
+                Debug.Log("key Added");
                 IconCollector.Instance.UpdateCommandList();
             }
         }

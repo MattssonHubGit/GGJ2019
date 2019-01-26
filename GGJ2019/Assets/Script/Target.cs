@@ -6,13 +6,16 @@ public class Target : Obstacle {
 
     public bool isTarget = false;
     public Player player;
+    public InputCollector inputCollector;
 
     public override void OnAttemptEnter()
     {
         if(isTarget)
         {
             win();
-            player.keylist
+            inputCollector.Emptykeylist();
+            player.currentState = Player.PlayerState.MVSELECT;
+            player.keylisttracker = -1;
             
         }
     }
