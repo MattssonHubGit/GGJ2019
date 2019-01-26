@@ -18,7 +18,7 @@ public class GridTile : MonoBehaviour {
 
     [Header("Accessibility")]
     [HideInInspector] public bool isBlocking = false;
-    [HideInInspector] public Vector2Int coordinates = new Vector2Int();
+    /*[HideInInspector]*/ public Vector2Int coordinates = new Vector2Int();
 
     #region Level editing
     [Header("Level")]
@@ -73,6 +73,6 @@ public class GridTile : MonoBehaviour {
     [ContextMenu("PlayerDirectionDebug")]
     private void DebugPlayerDirection()
     {
-        Debug.Log(Obstacle.PlayerComingFrom(GridGenerator.Instacne.activePlayer, coordinates.x, coordinates.y).ToString());
+        Debug.Log(Obstacle.PlayerComingFrom(GridGenerator.Instacne.activePlayer, this).ToString());
     }
 }
