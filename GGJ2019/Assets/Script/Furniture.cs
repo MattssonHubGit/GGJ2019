@@ -35,7 +35,7 @@ public class Furniture : Obstacle
                     oldTile.UnbindMyObsticle(); //Unbind me
                     this.transform.parent = myTile.transform;
 
-                    StartCoroutine(MoveThingToPosition(this.transform, myTile.pointToStand.position, 1f));   //Move to new tile
+                    StartCoroutine(MoveThingToPosition(myTile));   //Move to new tile
                 }
             }
         }
@@ -58,13 +58,12 @@ public class Furniture : Obstacle
     }
 
 
-    private IEnumerator MoveThingToPosition(Transform movingThing, Vector3 targetPosition, float timeInSec)
+    private IEnumerator MoveThingToPosition(GridTile targetTile)
     {
-        Vector3 startPos = movingThing.position;
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / timeInSec)
+        while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.01f)
         {
-            Vector3 _newPos = Vector3.Lerp(startPos, targetPosition, t + Time.deltaTime / timeInSec);
-            movingThing.position = _newPos;
+            Debug.Log(transform.position);
+            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime);
             yield return null;
         }
     }
