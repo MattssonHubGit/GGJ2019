@@ -10,13 +10,11 @@ public class Target : Obstacle {
 
     public override void OnAttemptEnter()
     {
-        if(isTarget)
+        if (isTarget)
         {
             win();
-            inputCollector.Emptykeylist();
-            player.currentState = Player.PlayerState.MVSELECT;
-            player.keylisttracker = -1;
-            
+
+
         }
     }
 
@@ -39,8 +37,15 @@ public class Target : Obstacle {
     {
         throw new System.NotImplementedException();
     }
-    private void win()
+    public void win()
     {
         Debug.Log("You won");
+        inputCollector.Emptykeylist();
+        player.currentState = Player.PlayerState.MVSELECT;
+        player.keylisttracker = -1;
+    }
+    public void loose(){
+        Debug.Log("Du förlorade men detta är inte implementerat");
+        //gameoverscrreen och reload scene
     }
 }

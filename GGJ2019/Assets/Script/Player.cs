@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public GridTile currentTile = null;
+    public InputCollector inputCollector;
     Transform targetPos;
     public GridTile targetTile;
     List<string> keylist;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour {
 
     private float currentTime=0;
     public float maxturntime =10;
+    bool timeout = false;
 
     public enum PlayerState { WAITING, EXECUTING, MVSELECT};
     public PlayerState currentState;
@@ -37,9 +39,14 @@ public class Player : MonoBehaviour {
                 break;
             case PlayerState.MVSELECT:
                 //Debug.Log("mvstate");
-                TurnTimer();
-                if (Input.GetKeyDown("return"))
+                
+                if (Input.GetKeyDown("return") || TurnTimer())
                 {
+                    if (inputCollector.keylist.Count < 1)
+                        loose();
+
+                        
+                    currentTime = 0;
                     Debug.Log("execute!");
                     currentState = PlayerState.EXECUTING;
                 }
@@ -77,10 +84,10 @@ public class Player : MonoBehaviour {
             //Every turn things
             skipRestOfMove = false;
             IconCollector.Instance.UpdateCommandList();
-            foreach (GridTile _tile in GridGenerator.Instacne.allTilesLifeSuck)
-            {
-                _tile.OnCommandExecute();
-            }
+            //foreach (GridTile _tile in GridGenerator.Instacne.allTilesLifeSuck)
+            //{
+            //    _tile.OnCommandExecute();
+            //}
 
             switch (keylist[keylisttracker])
             {
@@ -257,13 +264,29 @@ public class Player : MonoBehaviour {
         currentTile.OnAttemptEnter();
         currentState = PlayerState.EXECUTING;
     }
-    //private bool TurnTimer()
-    //{
-    //    if (currentTime >= maxturntime)
-    //    {
-    //        return true
-    //    }
-    //    else
-    //}
+    private bool TurnTimer()
+    {
+        if (currentTime >= maxturntime)
+        {
+            currentTime = 0;
+            return true;
+        }
+        else {
+            currentTime += Time.deltaTime;
+            return false;
+             }
+    }
+    public void win()
+    {
+        Debug.Log("You won");
+        inputCollector.Emptykeylist();
+        currentState = PlayerState.MVSELECT;
+        keylisttracker = -1;
+    }
+    public void loose()
+    {
+        Debug.Log("Du förlorade men detta är inte implementerat så jag fryser spelet här sucker");
+        //gameoverscrreen och reload scene
+    }
 }
 
