@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
     List<string> keylist;
     int i;
     public int keylisttracker;
+    [Header("actual variables")]
+    [SerializeField] private float moveSpeed = 4;
 
     public enum PlayerState { WAITING, EXECUTING, OTHER};
     private PlayerState currentState = PlayerState.OTHER;
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour {
     {
         while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, 4*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, moveSpeed*Time.deltaTime);
             yield return null;
         }
         
