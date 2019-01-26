@@ -118,18 +118,28 @@ public class Player : MonoBehaviour {
                         }
 
                         targetTile.OnAttemptEnter();
-                        if (!targetTile.isBlocking)
-                        {
-                            currentState = PlayerState.WAITING;
-                            StartCoroutine(Move(targetTile));
 
+                        if (skipRestOfMove == false) //Skip rest of move
+                        {
+                            if (!targetTile.isBlocking)
+                            {
+                                currentState = PlayerState.WAITING;
+                                StartCoroutine(Move(targetTile));
+
+                            }
+                            else
+                            {
+                                Debug.Log("Du försökte gå till en tile som är blockad");
+                                keylisttracker++;
+                                break;
+                            }
                         }
                         else
                         {
-                            Debug.Log("Du försökte gå till en tile som är blockad");
                             keylisttracker++;
-                            break;
                         }
+
+
                         break;
                     }
 
@@ -145,18 +155,27 @@ public class Player : MonoBehaviour {
                         }
 
                         targetTile.OnAttemptEnter();
-                        if (!targetTile.isBlocking)
+                        if (skipRestOfMove == false) //Skip rest of move
                         {
-                            currentState = PlayerState.WAITING;
-                            StartCoroutine(Move(targetTile));
+                            if (!targetTile.isBlocking)
+                            {
+                                currentState = PlayerState.WAITING;
+                                StartCoroutine(Move(targetTile));
 
+                            }
+                            else
+                            {
+                                Debug.Log("Du försökte gå till en tile som är blockad");
+                                keylisttracker++;
+                                break;
+                            }
                         }
                         else
                         {
-                            Debug.Log("Du försökte gå till en tile som är blockad");
                             keylisttracker++;
-                            break;
                         }
+
+
                         break;
                     }
 
@@ -172,25 +191,33 @@ public class Player : MonoBehaviour {
                         }
 
                         targetTile.OnAttemptEnter();
-                        if (!targetTile.isBlocking)
+                        if (skipRestOfMove == false) //Skip rest of move
                         {
-                            currentState = PlayerState.WAITING;
-                            StartCoroutine(Move(targetTile));
+                            if (!targetTile.isBlocking)
+                            {
+                                currentState = PlayerState.WAITING;
+                                StartCoroutine(Move(targetTile));
 
+                            }
+                            else
+                            {
+                                Debug.Log("Du försökte gå till en tile som är blockad");
+                                keylisttracker++;
+                                break;
+                            }
                         }
                         else
                         {
-                            Debug.Log("Du försökte gå till en tile som är blockad");
                             keylisttracker++;
-                            break;
                         }
                         break;
                     }
                    
                 case "space":
                     {
-                        //Wait for all things to execute
-
+                        targetTile = currentTile;
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Pause(targetTile));
                         break;
                     }
                    
@@ -208,5 +235,12 @@ public class Player : MonoBehaviour {
             return true;
         else
             return false;
+    }
+    IEnumerator Pause(GridTile targetTile)
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        keylisttracker++;
+        currentTile.OnAttemptEnter();
+        currentState = PlayerState.EXECUTING;
     }
 }
