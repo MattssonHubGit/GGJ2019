@@ -257,13 +257,13 @@ public class Player : MonoBehaviour {
         currentTile.OnAttemptEnter();
         currentState = PlayerState.EXECUTING;
     }
-    private bool TurnTimer()
-    {
-        if (currentTime >= maxturntime)
-        {
-            return true
-        }
-        else
-    }
+    //private bool TurnTimer()
+    //{
+    //    if (currentTime >= maxturntime)
+    //    {
+    //        return true
+    //    }
+    //    else
+    //}
 }
 
