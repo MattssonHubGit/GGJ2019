@@ -30,11 +30,34 @@ public class KeyControlAnimation : MonoBehaviour
         {
             myAnimator.SetBool("Walk", true);
         }
-
+        if (Input.GetKeyDown("a"))
+        {
+            myAnimator.SetBool("Walk", true);
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            myAnimator.SetBool("Walk", true);
+        }
+        if (Input.GetKeyDown("d"))
+        {
+            myAnimator.SetBool("Walk", true);
+        }
 
         // When the key/button is released the variable becomes false.
 
         if (Input.GetKeyUp("w"))
+        {
+            myAnimator.SetBool("Walk", false);
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            myAnimator.SetBool("Walk", false);
+        }
+        if (Input.GetKeyUp("s"))
+        {
+            myAnimator.SetBool("Walk", false);
+        }
+        if (Input.GetKeyUp("d"))
         {
             myAnimator.SetBool("Walk", false);
         }
