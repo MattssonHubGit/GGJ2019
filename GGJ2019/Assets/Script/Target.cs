@@ -6,7 +6,9 @@ public class Target : Obstacle {
 
     public override void OnAttemptEnter()
     {
-        throw new System.NotImplementedException();
+        //if(player)
+        win();
+        
     }
 
     public override void OnAttemptExit()
@@ -27,5 +29,9 @@ public class Target : Obstacle {
     public override void OnPlayerExecutes()
     {
         throw new System.NotImplementedException();
+    }
+    private void win()
+    {
+        Debug.Log("You won");
     }
 }
