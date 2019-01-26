@@ -34,14 +34,14 @@ public class Cat : MonoBehaviour {
 
     }
 
-    /*IEnumerator Move(GridTile targetTile)
+    private void OnTriggerEnter(Collider other)
     {
-        while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.01f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
+        Player _player = other.gameObject.GetComponent<Player>();
 
-    }*/
+        if (_player != null)
+        {
+            Debug.Log("YOU WILL LOSE!");
+        }
+    }
 }
 
