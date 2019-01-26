@@ -9,126 +9,179 @@ public class Player : MonoBehaviour {
     public GridTile targetTile;
     List<string> keylist;
     int i;
+    public int keylisttracker;
 
     public enum PlayerState { WAITING, EXECUTING, OTHER};
     private PlayerState currentState = PlayerState.OTHER;
 
-    public void Moveto(GridTile targetTile)
+    void Start()
     {
-        
-    
+        int keylisttracker = 0;
     }
+
     void Update()
     {
 
         switch (currentState)
         {
             case PlayerState.WAITING:
-
                 break;
             case PlayerState.EXECUTING:
-                CommandController();
+                CommandControllerFix();
                 break;
             case PlayerState.OTHER:
-
-                break;
+                if (Input.GetKeyDown("return"))
+                    currentState = PlayerState.EXECUTING;
+                    break;
             default:
                 break;
         }
 
-        /*if (Input.GetKeyDown("enter"))
-        {
-
-            keylist = InputCollector.Instance.Getcurrentkeylist();
-
-            for (i = 0; i < keylist.Count; i++)
-            {
-
-                //här måste jag ta reda på vilken tile som är currentTile
-
-                switch (keylist[i])
-                {
-                    case "up":
-                        targetTile = currentTile.neighbourNorth;
-                        if (!targetTile.isBlocking)
-                        {
-                            StartCoroutine(Move(targetTile));  
-                        }
-
-                        break;
-                    case "down":
-
-                        break;
-                    case "left":
-
-                        break;
-                    case "right":
-
-                        break;
-                    case "space":
-
-                        break;
-                    default:
-                        print("skumma saker hände");
-                        break;
-
-
-                }
-            }
-        }*/
     }
     IEnumerator Move(GridTile targetTile)
     {
-        while (Vector3.Distance(transform.position, targetTile.transform.position) > 0.01)
+        while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.5f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime);
-
+            //Debug.Log(Vector3.Distance(transform.position, targetTile.transform.position));
+            //Debug.Log(transform.position);
             yield return null;
         }
-
+    
+        keylisttracker++;
+        Debug.Log("Movment Step Completed");
+        currentTile = targetTile;
         currentState = PlayerState.EXECUTING;
+        
     }
 
+
+    private void CommandControllerFix()
+    {
+        keylist = InputCollector.Instance.Getcurrentkeylist();
+        
+        if (keylisttracker < keylist.Count)
+        {
+            switch (keylist[keylisttracker])
+            {
+                case "up":
+                    if (currentTile.neighbourNorth != null)
+                        targetTile = currentTile.neighbourNorth;
+                    else
+                    {
+                        Debug.Log("Du försökte gå till en tile som ej existerar");
+                        keylisttracker++;
+                        break;
+                    }
+                    if (!targetTile.isBlocking)
+                    {
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Move(targetTile));
+
+                    }
+
+                    break;
+                case "down":
+                    if(currentTile.neighbourSouth != null)
+                        targetTile = currentTile.neighbourSouth;
+                    else
+                    {
+                        Debug.Log("Du försökte gå till en tile som ej existerar");
+                        keylisttracker++;
+                        break;
+                    }
+                    if (!targetTile.isBlocking)
+                    {
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Move(targetTile));
+
+                    }
+                    break;
+                case "left":
+                    if (currentTile.neighbourWest != null)
+                        targetTile = currentTile.neighbourWest;
+                    else
+                    {
+                        Debug.Log("Du försökte gå till en tile som ej existerar");
+                        keylisttracker++;
+                        break;
+                    }
+                    if (!targetTile.isBlocking)
+                    {
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Move(targetTile));
+
+                    }
+                    break;
+                case "right":
+                    if (currentTile.neighbourEast != null)
+                        targetTile = currentTile.neighbourEast;
+                    else
+                    {
+                        Debug.Log("Du försökte gå till en tile som ej existerar");
+                        keylisttracker++;
+                        break;
+                    }
+                    if (!targetTile.isBlocking)
+                    {
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Move(targetTile));
+
+                    }
+
+                    break;
+                case "space":
+
+                    break;
+                default:
+                    print("skumma saker hände");
+                    break;
+
+
+            }
+        }
+    }
+
+
+
     private void CommandController() {
-        if (Input.GetKeyDown("enter"))
+        
+
+        keylist = InputCollector.Instance.Getcurrentkeylist();
+
+        for (i = 0; i < keylist.Count; i++)
         {
 
-            keylist = InputCollector.Instance.Getcurrentkeylist();
+            //här måste jag ta reda på vilken tile som är currentTile
 
-            for (i = 0; i < keylist.Count; i++)
+            switch (keylist[i])
             {
+                case "up":
+                    targetTile = currentTile.neighbourNorth;
+                    if (!targetTile.isBlocking)
+                    {
+                        currentState = PlayerState.WAITING;
+                        StartCoroutine(Move(targetTile));
+                    }
 
-                //här måste jag ta reda på vilken tile som är currentTile
+                    break;
+                case "down":
 
-                switch (keylist[i])
-                {
-                    case "up":
-                        targetTile = currentTile.neighbourNorth;
-                        if (!targetTile.isBlocking)
-                        {
-                            currentState = PlayerState.WAITING;
-                            StartCoroutine(Move(targetTile));
-                        }
+                    break;
+                case "left":
 
-                        break;
-                    case "down":
+                    break;
+                case "right":
 
-                        break;
-                    case "left":
+                    break;
+                case "space":
 
-                        break;
-                    case "right":
-
-                        break;
-                    case "space":
-
-                        break;
-                    default:
-                        print("skumma saker hände");
-                        break;
+                    break;
+                default:
+                    print("skumma saker hände");
+                    break;
 
 
-                }
             }
         }
     }

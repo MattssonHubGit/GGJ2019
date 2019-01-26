@@ -6,9 +6,11 @@ public class InputCollector : MonoBehaviour {
 
     List<string> keylist;
     public static InputCollector Instance;
+    int debugvar;
 
     // Use this for initialization
     void Start() {
+        debugvar = 0;
         keylist = new List<string>();
         if (Instance == null)
         {
@@ -22,7 +24,13 @@ public class InputCollector : MonoBehaviour {
     void Update() {
 
         if (Input.GetKeyDown("up"))
+        {
             keylist.Add("up");
+            Debug.Log("up lades till i keylist");
+            Debug.Log(keylist[debugvar]);
+            Debug.Log(debugvar);
+            debugvar++;
+        }
         if (Input.GetKeyDown("down"))
             keylist.Add("down");
         if (Input.GetKeyDown("left"))
