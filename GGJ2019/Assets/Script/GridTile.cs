@@ -35,7 +35,15 @@ public class GridTile : MonoBehaviour {
     {
         Obstacle _obstacle = Instantiate(obsticlePrefab, pointToStand.position, Quaternion.identity, this.transform);
         isBlocking = _obstacle.blocks;
+        _obstacle.myTile = this;
         myObstacle = _obstacle;
+    }
+
+    public void UnbindMyObsticle()
+    {
+        myObstacle.transform.parent = null;
+        myObstacle = null;
+        isBlocking = false;
     }
     #endregion
 
@@ -47,6 +55,7 @@ public class GridTile : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Try to enter")]
     public void OnAttemptEnter()
     {
         if (myObstacle != null)
