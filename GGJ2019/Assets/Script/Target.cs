@@ -13,8 +13,9 @@ public class Target : Obstacle {
         if(isTarget)
         {
             win();
-           
             inputCollector.Emptykeylist();
+            player.currentState = Player.PlayerState.MVSELECT;
+            player.keylisttracker = -1;
             
             
         }
