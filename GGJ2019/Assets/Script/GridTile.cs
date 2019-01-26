@@ -22,7 +22,7 @@ public class GridTile : MonoBehaviour {
 
     #region Level editing
     [Header("Level")]
-    [SerializeField] private Obstacle myObstacle = null;
+    [SerializeField] public Obstacle myObstacle = null;
     public UnityEvent SetUpObsticle;
 
     [ContextMenu("Set up Obsticles")]
