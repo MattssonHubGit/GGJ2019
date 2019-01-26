@@ -40,6 +40,59 @@ public class Furniture : Obstacle
             }
         }
 
+        //Go south
+        if (playerComesFrom == CardinalDirections.Directions.N) //Player coming from north
+        {
+            if (myTile.neighbourSouth != null) //my tile has a southern neighbour
+            {
+                if (myTile.neighbourSouth.isBlocking == false)
+                {
+                    myTile = myTile.neighbourSouth; //Change tile
+
+                    GridTile oldTile = myTile.neighbourNorth; //Find old tile
+                    oldTile.UnbindMyObsticle(); //Unbind me
+                    this.transform.parent = myTile.transform;
+
+                    StartCoroutine(MoveThingToPosition(myTile));   //Move to new tile
+                }
+            }
+        }
+
+        //Go east
+        if (playerComesFrom == CardinalDirections.Directions.W) //Player coming from west
+        {
+            if (myTile.neighbourEast != null) //my tile has a eastern neighbour
+            {
+                if (myTile.neighbourEast.isBlocking == false)
+                {
+                    myTile = myTile.neighbourEast; //Change tile
+
+                    GridTile oldTile = myTile.neighbourWest; //Find old tile
+                    oldTile.UnbindMyObsticle(); //Unbind me
+                    this.transform.parent = myTile.transform;
+
+                    StartCoroutine(MoveThingToPosition(myTile));   //Move to new tile
+                }
+            }
+        }
+
+        //Go west
+        if (playerComesFrom == CardinalDirections.Directions.E) //Player coming from east
+        {
+            if (myTile.neighbourWest != null) //my tile has a western neighbour
+            {
+                if (myTile.neighbourWest.isBlocking == false)
+                {
+                    myTile = myTile.neighbourWest; //Change tile
+
+                    GridTile oldTile = myTile.neighbourEast; //Find old tile
+                    oldTile.UnbindMyObsticle(); //Unbind me
+                    this.transform.parent = myTile.transform;
+
+                    StartCoroutine(MoveThingToPosition(myTile));   //Move to new tile
+                }
+            }
+        }
     }
 
     public override void OnExit()
@@ -62,7 +115,6 @@ public class Furniture : Obstacle
     {
         while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.01f)
         {
-            Debug.Log(transform.position);
             transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime);
             yield return null;
         }
