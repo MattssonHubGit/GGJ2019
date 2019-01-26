@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Furniture : Obstacle {
+public class Furniture : Obstacle
+{
 
     [SerializeField] private bool moveable = false;
 
@@ -14,11 +15,30 @@ public class Furniture : Obstacle {
     public override void OnAttemptEnter()
     {
         //If not movable, simply don't care
-        if (moveable == true)
+        if (moveable == false)
         {
             return;
         }
 
+        CardinalDirections.Directions playerComesFrom = PlayerComingFrom(GridGenerator.Instacne.activePlayer, myTile);
+
+        //Go north
+        if (playerComesFrom == CardinalDirections.Directions.S) //Player coming from south
+        {
+            if (myTile.neighbourNorth != null) //my tile has a nothern neighbour
+            {
+                if (myTile.neighbourNorth.isBlocking == false)
+                {
+                    myTile = myTile.neighbourNorth; //Change tile
+
+                    GridTile oldTile = myTile.neighbourSouth; //Find old tile
+                    oldTile.UnbindMyObsticle(); //Unbind me
+                    this.transform.parent = myTile.transform;
+
+                    StartCoroutine(MoveThingToPosition(this.transform, myTile.pointToStand.position, 1f));   //Move to new tile
+                }
+            }
+        }
 
     }
 
@@ -36,4 +56,17 @@ public class Furniture : Obstacle {
     {
         Debug.Log("Furniture doe snot care about your commands!");
     }
+
+
+    private IEnumerator MoveThingToPosition(Transform movingThing, Vector3 targetPosition, float timeInSec)
+    {
+        Vector3 startPos = movingThing.position;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / timeInSec)
+        {
+            Vector3 _newPos = Vector3.Lerp(startPos, targetPosition, t + Time.deltaTime / timeInSec);
+            movingThing.position = _newPos;
+            yield return null;
+        }
+    }
+
 }
