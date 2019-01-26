@@ -40,17 +40,16 @@ public class Player : MonoBehaviour {
     }
     IEnumerator Move(GridTile targetTile)
     {
-        while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.5f)
+        while (Vector3.Distance(transform.position, targetTile.pointToStand.position) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, Time.deltaTime);
-            //Debug.Log(Vector3.Distance(transform.position, targetTile.transform.position));
-            //Debug.Log(transform.position);
+            transform.position = Vector3.MoveTowards(transform.position, targetTile.pointToStand.position, 4*Time.deltaTime);
             yield return null;
         }
-    
+        
         keylisttracker++;
         Debug.Log("Movment Step Completed");
         currentTile = targetTile;
+        yield return new WaitForSecondsRealtime(0.5f);
         currentState = PlayerState.EXECUTING;
         
     }
@@ -128,50 +127,6 @@ public class Player : MonoBehaviour {
                         StartCoroutine(Move(targetTile));
 
                     }
-
-                    break;
-                case "space":
-
-                    break;
-                default:
-                    print("skumma saker hände");
-                    break;
-
-
-            }
-        }
-    }
-
-
-
-    private void CommandController() {
-        
-
-        keylist = InputCollector.Instance.Getcurrentkeylist();
-
-        for (i = 0; i < keylist.Count; i++)
-        {
-
-            //här måste jag ta reda på vilken tile som är currentTile
-
-            switch (keylist[i])
-            {
-                case "up":
-                    targetTile = currentTile.neighbourNorth;
-                    if (!targetTile.isBlocking)
-                    {
-                        currentState = PlayerState.WAITING;
-                        StartCoroutine(Move(targetTile));
-                    }
-
-                    break;
-                case "down":
-
-                    break;
-                case "left":
-
-                    break;
-                case "right":
 
                     break;
                 case "space":
