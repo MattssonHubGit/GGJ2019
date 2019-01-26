@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Target : Obstacle {
 
+    public bool isTarget = false;
+    public Player player;
+
     public override void OnAttemptEnter()
     {
-        //if(player)
-        win();
-        
+        if(isTarget)
+        {
+            win();
+            player.keylist
+            
+        }
     }
 
     public override void OnAttemptExit()
