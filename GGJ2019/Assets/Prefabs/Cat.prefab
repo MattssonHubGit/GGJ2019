@@ -165,7 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535a6548c25dfdd429291e498ea3b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTile: {fileID: 0}
-  blocks: 1
   path: []
   moveSpeed: 4
