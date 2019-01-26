@@ -17,11 +17,12 @@ public class GridTile : MonoBehaviour {
     public List<GridTile> neighbours = new List<GridTile>();
 
     [Header("Accessibility")]
-    public bool isBlocking = false;
+    [HideInInspector] public bool isBlocking = false;
+    [HideInInspector] public Vector2Int coordinates = new Vector2Int();
 
     #region Level editing
     [Header("Level")]
-    [SerializeField] private Obsticle myObsticle = null;
+    [SerializeField] private Obstacle myObstacle = null;
     public UnityEvent SetUpObsticle;
 
     [ContextMenu("Set up Obsticles")]
@@ -30,42 +31,48 @@ public class GridTile : MonoBehaviour {
         SetUpObsticle.Invoke();
     }
 
-    public void AddBlocker(Obsticle obsticlePrefab)
+    public void AddBlocker(Obstacle obsticlePrefab)
     {
-        Obsticle _obsticle = Instantiate(obsticlePrefab, pointToStand.position, Quaternion.identity, this.transform);
-        isBlocking = _obsticle.blocks;
-        myObsticle = _obsticle;
+        Obstacle _obstacle = Instantiate(obsticlePrefab, pointToStand.position, Quaternion.identity, this.transform);
+        isBlocking = _obstacle.blocks;
+        myObstacle = _obstacle;
     }
     #endregion
 
     public void OnEnter()
     {
-        if (myObsticle != null)
+        if (myObstacle != null)
         {
-            myObsticle.OnEnter();
+            myObstacle.OnEnter();
         }
     }
 
     public void OnAttemptEnter()
     {
-        if (myObsticle != null)
+        if (myObstacle != null)
         {
-            myObsticle.OnAttemptEnter();
+            myObstacle.OnAttemptEnter();
         }
     }
 
     public void OnExit()
     {
-        if (myObsticle != null)
+        if (myObstacle != null)
         {
-            myObsticle.OnExit();
+            myObstacle.OnExit();
         }
     }
     public void OnAttemptExit()
     {
-        if (myObsticle != null)
+        if (myObstacle != null)
         {
-            myObsticle.OnAttemptExit();
+            myObstacle.OnAttemptExit();
         }
+    }
+
+    [ContextMenu("PlayerDirectionDebug")]
+    private void DebugPlayerDirection()
+    {
+        Debug.Log(Obstacle.PlayerComingFrom(GridGenerator.Instacne.activePlayer, coordinates.x, coordinates.y).ToString());
     }
 }

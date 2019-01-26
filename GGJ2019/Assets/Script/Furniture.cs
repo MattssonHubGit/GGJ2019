@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Furniture : Obsticle {
+public class Furniture : Obstacle {
 
-    [SerializeField] private bool eternal = false;
+    [SerializeField] private bool moveable = false;
 
     public override void OnEnter()
     {
@@ -13,7 +13,13 @@ public class Furniture : Obsticle {
 
     public override void OnAttemptEnter()
     {
-        Debug.Log("You can't enter furniture!");
+        //If not movable, simply don't care
+        if (moveable == true)
+        {
+            return;
+        }
+
+
     }
 
     public override void OnExit()
@@ -24,5 +30,10 @@ public class Furniture : Obsticle {
     public override void OnAttemptExit()
     {
         Debug.Log("Yeah, get out of the furniture!");
+    }
+
+    public override void OnPlayerExecutes()
+    {
+        Debug.Log("Furniture doe snot care about your commands!");
     }
 }

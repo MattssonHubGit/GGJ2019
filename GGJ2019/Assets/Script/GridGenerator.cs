@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridGenerator : MonoBehaviour {
 
+    public static GridGenerator Instacne;
+
     [SerializeField] private GridTile tilePrefab;
     private GridTile[,] level;
 
@@ -13,9 +15,19 @@ public class GridGenerator : MonoBehaviour {
     [Range(0, 5)] [SerializeField] private float xOffset = 2f;
     [Range(0, 5)] [SerializeField] private float yOffset = 2f;
 
+    [Space]
+    public Player activePlayer;
+
     private void Start()
     {
-        
+        if (Instacne == null)
+        {
+            Instacne = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
    private void Update()
@@ -38,6 +50,7 @@ public class GridGenerator : MonoBehaviour {
             {
                 GridTile _tile = Instantiate(tilePrefab, new Vector3(0 + x * xOffset, 0, 0 + y * yOffset), Quaternion.identity, this.transform);
                 _tile.gameObject.name = "Tile: " + x + ", " + y;
+                _tile.coordinates = new Vector2Int(x, y);
                 level[x, y] = _tile;
             }
         }
