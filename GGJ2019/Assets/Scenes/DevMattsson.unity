@@ -5495,7 +5495,8 @@ Prefab:
       propertyPath: currentTile
       value: 
       objectReference: {fileID: 989602806}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114757727611451536, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 58eff9a29f26c4340836302b031d986d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1680948584
