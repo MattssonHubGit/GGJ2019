@@ -11,7 +11,7 @@ public class Targetselector : MonoBehaviour {
     void Start () {
         targetnumber = Random.Range(0, targets.Count);
         targets[targetnumber].isTarget = true;
-		
+        Debug.Log("target is " + targetnumber);
 	}
 	
 	// Update is called once per frame
