@@ -13,8 +13,8 @@ public class GridGenerator : MonoBehaviour {
     [Header("Level Size")]
     [Range(1, 20)] [SerializeField] private int xSize = 1;
     [Range(1, 20)] [SerializeField] private int ySize = 1;
-    [Range(0, 5)] [SerializeField] private float xOffset = 2f;
-    [Range(0, 5)] [SerializeField] private float yOffset = 2f;
+    [Range(0, 50)] [SerializeField] private float xOffset = 2f;
+    [Range(0, 50)] [SerializeField] private float yOffset = 2f;
 
     [Space]
     public Player activePlayer;
