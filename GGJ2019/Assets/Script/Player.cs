@@ -14,6 +14,9 @@ public class Player : MonoBehaviour {
     [Header("actual variables")]
     [SerializeField] private float moveSpeed = 4;
 
+    public int score;
+    public float timeleft;
+
     private float currentTime=0;
     public float maxturntime =10;
     bool timeout = false;
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour {
 
     void Start()
     {
+        score = 0;
         int keylisttracker = 0;
         currentState = PlayerState.MVSELECT;
     }
@@ -35,6 +39,8 @@ public class Player : MonoBehaviour {
             case PlayerState.WAITING:
                 break;
             case PlayerState.EXECUTING:
+                if (inputCollector.keylist.Count < 1)
+                    loose();
                 CommandControllerFix();
                 break;
             case PlayerState.MVSELECT:
@@ -248,6 +254,10 @@ public class Player : MonoBehaviour {
 
 
             }
+            if (keylisttracker == inputCollector.keylist.Count - 1)
+            {
+                inputCollector.Emptykeylist();
+            }
         }
     }
     public bool IsMVSELECT()
@@ -273,6 +283,7 @@ public class Player : MonoBehaviour {
         }
         else {
             currentTime += Time.deltaTime;
+            timeleft = maxturntime - currentTime;
             return false;
              }
     }
@@ -282,11 +293,12 @@ public class Player : MonoBehaviour {
         inputCollector.Emptykeylist();
         currentState = PlayerState.MVSELECT;
         keylisttracker = -1;
+        score++;
     }
     public void loose()
     {
         Debug.Log("Du förlorade men detta är inte implementerat så jag fryser spelet här sucker");
-        //gameoverscrreen och reload scene
+        //gameoverscreen och reload scene
     }
 }
 
