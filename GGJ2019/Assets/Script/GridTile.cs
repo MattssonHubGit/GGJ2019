@@ -79,6 +79,14 @@ public class GridTile : MonoBehaviour {
         }
     }
 
+    public void OnCommandExecute()
+    {
+        if (myObstacle != null)
+        {
+            myObstacle.OnPlayerExecutes();
+        }
+    }
+
     [ContextMenu("PlayerDirectionDebug")]
     private void DebugPlayerDirection()
     {
