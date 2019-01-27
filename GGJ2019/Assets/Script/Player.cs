@@ -14,8 +14,12 @@ public class Player : MonoBehaviour {
     [Header("actual variables")]
     [SerializeField] private float moveSpeed = 4;
 
+
     public int score;
     public float timeleft;
+    private int timesScored;
+    private int multiplier;
+    public int roundsToDoubleMultiplier = 4;
 
     private float currentTime = 0;
     public float maxturntime = 10;
@@ -28,6 +32,8 @@ public class Player : MonoBehaviour {
     void Start()
     {
         score = 0;
+        multiplier = 1;
+        timesScored = 0;
         int keylisttracker = 0;
         currentState = PlayerState.MVSELECT;
     }
@@ -293,7 +299,7 @@ public class Player : MonoBehaviour {
         Targetselector.Instance.Randomize();
         inputCollector.Emptykeylist();
         keylisttracker = -1;
-        score++;
+        addscore();
         if (maxturntime > minmaxturntime)
         {
             maxturntime--;
@@ -306,6 +312,16 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("Du förlorade men detta är inte implementerat så jag fryser spelet här sucker");
         //gameoverscreen och reload scene
+    }
+    private void addscore()
+    {
+        score = score + (50 * multiplier);
+        timesScored++;
+        if (timesScored % roundsToDoubleMultiplier == 0)
+        {
+            multiplier = 2 * multiplier;
+        }
+
     }
 }
 
