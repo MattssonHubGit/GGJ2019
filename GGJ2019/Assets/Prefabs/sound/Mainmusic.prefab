@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4575915360850164}
   - component: {fileID: 114098231219012438}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Mainmusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

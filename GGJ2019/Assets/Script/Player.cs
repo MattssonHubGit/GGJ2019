@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     public GameObject GameOverScreen;
     public Animator myAnime;
 
+
     public int score;
     public float timeleft;
     private int timesScored;
@@ -300,9 +301,12 @@ public class Player : MonoBehaviour {
             return false;
              }
     }
+
+    public soundcollector sounds;
     public void win()
     {
         Debug.Log("You won");
+        sounds.Win();
         Targetselector.Instance.Randomize();
         inputCollector.Emptykeylist();
         keylisttracker = -1;
