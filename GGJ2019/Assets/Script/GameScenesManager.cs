@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameScenesManager : MonoBehaviour {
+public class GameScenesManager : MonoBehaviour
+{
 
-    public bool canRestart = false;
     public static int gameSceneIndex = 0;
 
     public void Reload()
@@ -15,12 +15,11 @@ public class GameScenesManager : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            if (canRestart)
-            {
-                Reload();
-            }
+
+            Reload();
+
         }
     }
 }

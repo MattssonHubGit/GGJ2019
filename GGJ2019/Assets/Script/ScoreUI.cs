@@ -7,10 +7,12 @@ public class ScoreUI : MonoBehaviour {
 
     public Player player;
     public Text scoreText;
+    public Text gameOverScoreText;
 
 	
 	// Update is called once per frame
 	void Update () {
         scoreText.text = "  Score: " + player.score;
-	}
+        gameOverScoreText.text = "  Score: " + player.score;
+    }
 }

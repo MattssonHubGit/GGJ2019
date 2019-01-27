@@ -13,7 +13,8 @@ public class Player : MonoBehaviour {
     public int keylisttracker;
     [Header("actual variables")]
     [SerializeField] private float moveSpeed = 4;
-
+    public GameObject GameOverScreen;
+    public Animator myAnime;
 
     public int score;
     public float timeleft;
@@ -82,7 +83,7 @@ public class Player : MonoBehaviour {
         currentTile = targetTile;
         yield return new WaitForSecondsRealtime(0.5f);
         currentState = PlayerState.EXECUTING;
-        
+
     }
 
     public bool skipRestOfMove = false;
@@ -260,8 +261,10 @@ public class Player : MonoBehaviour {
 
 
             }
-            if (keylisttracker == inputCollector.keylist.Count - 1)
+            if (keylisttracker >= inputCollector.keylist.Count - 1)
             {
+
+                Debug.Log("keylisttracker == inputCollector.keylist.Count - 1");
                 inputCollector.Emptykeylist();
             }
         }
@@ -311,7 +314,9 @@ public class Player : MonoBehaviour {
     public void loose()
     {
         Debug.Log("Du förlorade men detta är inte implementerat så jag fryser spelet här sucker");
+        GameOverScreen.SetActive(true);
         //gameoverscreen och reload scene
+
     }
     private void addscore()
     {
