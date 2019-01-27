@@ -19,6 +19,7 @@ public class Cat : MonoBehaviour {
         if (Vector3.Distance(transform.position, path[pathCounter].position) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, path[pathCounter].position, moveSpeed * Time.deltaTime);
+            transform.LookAt(path[pathCounter].position);
         }
         else
         {
