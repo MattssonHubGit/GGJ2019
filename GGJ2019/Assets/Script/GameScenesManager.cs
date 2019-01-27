@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameScenesManager : MonoBehaviour
 {
 
-    public static int gameSceneIndex = 0;
+    public static int gameSceneIndex = 1;
 
     public void Reload()
     {
