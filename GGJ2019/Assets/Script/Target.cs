@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Target : Obstacle {
 
+    public string goalText = "";
     public bool isTarget = false;
     public Player player;
     public InputCollector inputCollector;
