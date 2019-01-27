@@ -92,4 +92,12 @@ public class GridTile : MonoBehaviour {
     {
         Debug.Log(Obstacle.PlayerComingFrom(GridGenerator.Instacne.activePlayer, this).ToString());
     }
+
+    private void Start()
+    {
+        if (myObstacle == null)
+        {
+            isBlocking = false;
+        }
+    }
 }
