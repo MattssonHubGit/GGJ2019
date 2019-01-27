@@ -11,6 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DevMattsson.unity
     guid: 4918517d1f87399429abc34256adcbe9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DevAdam4.unity
     guid: 385d6dccd82520644bcc43692d7e7575

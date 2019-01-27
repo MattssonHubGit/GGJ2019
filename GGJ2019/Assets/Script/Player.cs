@@ -302,11 +302,11 @@ public class Player : MonoBehaviour {
              }
     }
 
-    public soundcollector sounds;
+    //public soundcollector sounds;
     public void win()
     {
         Debug.Log("You won");
-        sounds.Win();
+        //sounds.Win();
         Targetselector.Instance.Randomize();
         inputCollector.Emptykeylist();
         keylisttracker = -1;
